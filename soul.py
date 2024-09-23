@@ -7,10 +7,10 @@ import certifi
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
-TOKEN = '7500366284:AAG8DF9FOZUyi1DCagFg4b0ypIDaJaToBTM'
+TOKEN = '7459118905:AAE9PDBDy4qyCr0VHv-hpxMLrz2moitCY_Y'
 MONGO_URI = 'mongodb+srv://admin:kpR4ObsewTySq48I@test.zeqrmgb.mongodb.net/test_db?retryWrites=true&w=majority'
-CHANNEL_ID = -1002150195409
-ADMIN_IDS = [1051815609, 1234567890, 2345678901, 3456789012, 4567890123]
+CHANNEL_ID = -1002159950332
+ADMIN_IDS = [5674869424]
 
 
 client = MongoClient(MONGO_URI, tlsCAFile=certifi.where())
@@ -52,7 +52,7 @@ def check_user_approval(user_id):
 
 
 def send_not_approved_message(chat_id):
-    bot.send_message(chat_id, "*YOU ARE NOT APPROVED*", parse_mode='Markdown')
+    bot.send_message(chat_id, "*YOU ARE NOT APPROVED @raj14754*", parse_mode='Markdown')
 
 def send_main_buttons(chat_id):
     markup = ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
@@ -117,7 +117,7 @@ def attack_command(message):
         send_not_approved_message(message.chat.id)
         return
 
-    bot.send_message(message.chat.id, "*Please provide the target IP and port separated by a space.*", parse_mode='Markdown')
+    bot.send_message(message.chat.id, "*Please provide the target IP and port separated by a space.@raj14754*", parse_mode='Markdown')
     bot.register_next_step_handler(message, process_attack_ip_port)
 
 def process_attack_ip_port(message):
